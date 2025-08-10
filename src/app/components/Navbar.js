@@ -23,7 +23,7 @@ function Navbar() {
       {/* Desktop Nav */}
       <div className="hidden md:flex items-center gap-8">
         <Link
-          href="/About"
+          href="/about"
           className="text-[#FFFFFD] text-sm hover:text-[#D9FF6A] transition"
         >
           About
