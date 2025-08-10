@@ -28,18 +28,18 @@ function Navbar() {
         >
           About
         </Link>
-        <a
+        <Link
           href="#portfolio"
           className="text-[#FFFFFD] text-sm hover:text-[#D9FF6A] transition"
         >
           Portfolio
-        </a>
-        <a
-          href="#contact"
+        </Link>
+        <Link
+          href="/contact"
           className="text-[#FFFFFD] text-sm hover:text-[#D9FF6A] transition"
         >
           Contact
-        </a>
+        </Link>
       </div>
 
       {/* Desktop Button */}
