@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
+import { ProjectsSection } from './components/Projects';
+import { ProjectDetail } from './components/project-detail';
 import Navbar from './components/Navbar';
-import Project from './components/Projects';
 
-
-// Data for the accordion
+// --- DATA ---
 const servicesList = [
     {
         title: "UI/UX Design",
@@ -26,6 +26,28 @@ const servicesList = [
     {
         title: "Web & Mobile App Design",
         description: "Designing responsive and adaptive layouts that provide an optimal experience across all devices, from desktops to smartphones."
+    }
+];
+const servicesList_2 = [
+    {
+        title: "Custom Website Development",
+        description: "Designing and developing responsive, high-performance websites tailored to your business goals and brand identity."
+    },
+    {
+        title: "E-Commerce Solutions",
+        description: "Creating secure, scalable, and user-friendly online stores with seamless payment integration and product management tools."
+    },
+    {
+        title: "Web Application Development",
+        description: "Building powerful, scalable, and feature-rich web apps that deliver exceptional user experiences across all devices."
+    },
+    {
+        title: "Frontend Development",
+        description: "Crafting visually stunning and interactive user interfaces using modern frameworks like React, Vue, and Angular."
+    },
+    {
+        title: "Backend Development",
+        description: "Developing robust server-side logic, databases, and APIs to power fast, secure, and scalable web applications."
     }
 ];
 
@@ -70,8 +92,10 @@ const AccordionItem = ({ service, index, activeIndex, onToggle }) => {
     );
 };
 
-export default function Services() {
-    const [activeIndex, setActiveIndex] = useState(0); 
+// --- HomePage Component ---
+const HomePage = ({ onProjectSelect }) => {
+    const [activeIndex1, setActiveIndex1] = useState(0); 
+    const [activeIndex2, setActiveIndex2] = useState(0); 
     const sectionRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -98,8 +122,12 @@ export default function Services() {
         };
     }, []);
 
-    const handleToggle = (index) => {
-        setActiveIndex(activeIndex === index ? null : index);
+    const handleToggle1 = (index) => {
+        setActiveIndex1(activeIndex1 === index ? null : index);
+    };
+
+     const handleToggle2 = (index) => {
+        setActiveIndex2(activeIndex2 === index ? null : index);
     };
 
     const getAnimationClass = (delay) => {
@@ -107,19 +135,10 @@ export default function Services() {
     };
 
     return (
-        <div className="bg-[#181818] min-h-screen font-sans text-white">
+        <div className="bg-[#181818] font-sans text-white">
             <Navbar />
             
-            {/* --- HERO HEADER --- */}
             <section className="relative w-full flex flex-col items-center justify-center text-center pt-16 pb-32 bg-[#181818]">
-                <div className="flex flex-col items-center gap-4 mb-8">
-                    {/* Social Icons */}
-                    <div className="flex gap-4 justify-center">
-                        <span className="inline-block bg-[#232323] rounded-full p-2"><img src="/window.svg" alt="M" className="w-6 h-6" /></span>
-                        <span className="inline-block bg-[#232323] rounded-full p-2"><img src="/globe.svg" alt="G" className="w-6 h-6" /></span>
-                        <span className="inline-block bg-[#232323] rounded-full p-2"><img src="/next.svg" alt="N" className="w-6 h-6" /></span>
-                    </div>
-                </div>
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">Evaluate Your Design & Development with us.</h1>
                 <p className="text-[#B5B6B6] text-lg sm:text-xl max-w-2xl mx-auto mb-8">The Madbrains Technologies advances state to use the most recent advances in development technology and maintain the user at the centre of every design decision.</p>
                 <button className="bg-[#232323] text-[#FFFFFD] font-semibold px-8 py-3 rounded-lg shadow hover:bg-[#D9FF6A] hover:text-[#232323] transition mb-8">Join Us Today</button>
@@ -130,7 +149,6 @@ export default function Services() {
                     </div>
                     <div className="flex flex-col items-center">
                         <div className="flex items-center gap-2 mb-2">
-                            {/* Avatars */}
                             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="avatar" className="w-8 h-8 rounded-full border-2 border-[#232323]" />
                             <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="avatar" className="w-8 h-8 rounded-full border-2 border-[#232323]" />
                             <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="avatar" className="w-8 h-8 rounded-full border-2 border-[#232323]" />
@@ -146,35 +164,30 @@ export default function Services() {
                         <span className="text-[#B5B6B6] text-sm">Team Members</span>
                     </div>
                 </div>
-                                <div className="relative z-10 mt-16">
+                <div className="relative z-10 mt-16">
                     <h3 className="text-white text-lg mb-6">Clients We've worked with</h3>
-                    <div className="flex flex-wrap justify-center gap-8">
-                        <span className="bg-white rounded-lg px-6 py-3 shadow text-black font-semibold flex items-center">treva.</span>
-                        <span className="bg-white rounded-lg px-6 py-3 shadow text-black font-semibold flex items-center">FACTORY</span>
-                        <span className="bg-white rounded-lg px-6 py-3 shadow text-black font-semibold flex items-center">Faker</span>
-                        <span className="bg-white rounded-lg px-6 py-3 shadow text-black font-semibold flex items-center">FOX HUB</span>
-                        <span className="bg-white rounded-lg px-6 py-3 shadow text-black font-semibold flex items-center">MONERO</span>
+                    <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
+                        <span className="text-gray-400 text-lg font-semibold flex items-center">treva.</span>
+                        <span className="text-gray-400 text-lg font-semibold flex items-center">FACTORY</span>
+                        <span className="text-gray-400 text-lg font-semibold flex items-center">Faker</span>
+                        <span className="text-gray-400 text-lg font-semibold flex items-center">FOX HUB</span>
+                        <span className="text-gray-400 text-lg font-semibold flex items-center">MONERO</span>
                     </div>
                 </div>
             </section>
-
             
-            {/* --- MAIN CONTENT --- */}
-            <div className="container mx-auto py-16 sm:py-24 bg-[#181818]  relative">
+            <div id="services" className="container mx-auto py-16 sm:py-24 bg-[#181818] relative">
                 <div ref={sectionRef}>
-                    {/* --- HEADER --- */}
                     <div className="text-center max-w-3xl mx-auto">
                         <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 ${getAnimationClass('delay-100')}`}>
                             Our Services
                         </h1>
                         <p className={`text-[#B5B6B6] text-lg sm:text-xl ${getAnimationClass('delay-200')}`}>
-                            We specialize in creating beautiful, functional, and user-centric digital experiences that drive results and delight users. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla animi vel, ea ducimus ut inventore voluptatum consequuntur asperiores nihil excepturi exercitationem dolorem, accusantium officia. Placeat, temporibus aspernatur. Sit, quas voluptas!
+                            We specialize in creating beautiful, functional, and user-centric digital experiences that drive results and delight users.
                         </p>
                     </div>
 
-                    {/* --- CONTENT WRAPPER --- */}
                     <div className={`mt-16 sm:mt-24 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-stretch ${getAnimationClass('delay-300')}`}>
-                        {/* --- LEFT - ACCORDION --- */}
                         <div className="w-full md:w-1/2 p-4">
                             <h2 className="text-3xl font-semibold text-white mb-2">UI/UX DESIGN</h2>
                             <p className="text-[#B5B6B6] mb-8">
@@ -186,14 +199,13 @@ export default function Services() {
                                         key={index}
                                         service={service}
                                         index={index}
-                                        activeIndex={activeIndex}
-                                        onToggle={handleToggle}
+                                        activeIndex={activeIndex1}
+                                        onToggle={handleToggle1}
                                     />
                                ))}
                             </div>
                         </div>
 
-                        {/* --- RIGHT - IMAGE --- */}
                         <div className="w-full md:w-1/2 hidden md:flex items-center justify-center p-4">
                              <img 
                                 src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop" 
@@ -202,38 +214,70 @@ export default function Services() {
                             />
                         </div>
                     </div>
-                    <div className={`mt-16 sm:mt-24 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-stretch ${getAnimationClass('delay-300')}`}>
-                        {/* --- RIGHT - IMAGE --- */}
-                        <div className="w-full md:w-1/2 hidden md:flex items-center justify-center p-4">
-                             <img 
-                                src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop" 
-                                alt="UI/UX design workspace with laptop and sketches" 
-                                className="rounded-lg object-cover w-full h-full max-h-[600px] shadow-2xl shadow-black/50"
-                            />
-                        </div>
-                        {/* --- LEFT - ACCORDION --- */}
+                    <div className={`mt-16 sm:mt-24 w-full max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-stretch ${getAnimationClass('delay-300')}`}>
                         <div className="w-full md:w-1/2 p-4">
-                            <h2 className="text-3xl font-semibold text-white mb-2">UI/UX DESIGN</h2>
+                            <h2 className="text-3xl font-semibold text-white mb-2">Web Development</h2>
                             <p className="text-[#B5B6B6] mb-8">
-                                From initial concept to final design, we cover all aspects of the user interface and experience to ensure your product is not just good, but great.
+                                We build robust, scalable, and secure web applications tailored to your specific business needs, from e-commerce to enterprise-level platforms.
                             </p>
                             <div>
-                               {servicesList.map((service, index) => (
+                               {servicesList_2.map((service, index) => (
                                     <AccordionItem 
                                         key={index}
                                         service={service}
                                         index={index}
-                                        activeIndex={activeIndex}
-                                        onToggle={handleToggle}
+                                        activeIndex={activeIndex2}
+                                        onToggle={handleToggle2}
                                     />
                                ))}
                             </div>
-                           
+                        </div>
+                        <div className="w-full md:w-1/2 hidden md:flex items-center justify-center p-4">
+                             <img 
+                                src="https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=2070&auto=format&fit=crop" 
+                                alt="Web development team working" 
+                                className="rounded-lg object-cover w-full h-full max-h-[600px] shadow-2xl shadow-black/50"
+                            />
                         </div>
                     </div>
                 </div>
             </div>
-            <Project/>
+            <div id="projects">
+              <ProjectsSection onProjectSelect={onProjectSelect}/>
+            </div>
+        </div>
+    );
+}
+
+// --- MAIN APP WRAPPER ---
+export default function App() {
+    const [currentView, setCurrentView] = useState('home');
+    const [selectedProject, setSelectedProject] = useState(null);
+
+    const handleProjectSelect = (project) => {
+        setSelectedProject(project);
+        setCurrentView('projectDetail');
+    };
+
+    const handleBack = () => {
+        setCurrentView('home');
+        setSelectedProject(null);
+    };
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+          window.scrollTo(0, 0);
+        }
+    }, [currentView]);
+
+    return (
+        <div className="bg-[#181818] min-h-screen">
+            {currentView === 'home' && (
+                <HomePage onProjectSelect={handleProjectSelect} />
+            )}
+            {currentView === 'projectDetail' && (
+                <ProjectDetail project={selectedProject} onBack={handleBack} />
+            )}
         </div>
     );
 }
