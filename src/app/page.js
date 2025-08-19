@@ -8,26 +8,27 @@ import Navbar from './components/Navbar';
 // --- DATA ---
 const servicesList = [
     {
-        title: "UI/UX Design",
-        description: "Crafting intuitive and visually appealing interfaces that enhance user satisfaction and engagement. We focus on a human-centered approach to create seamless digital experiences."
+        title: "Custom App Development",
+        description: "We build scalable, secure, and high-performance mobile and web applications tailored to your business needs, ensuring reliability and growth."
     },
     {
-        title: "Wireframing & Prototyping",
-        description: "Building the blueprint of your application. We create detailed wireframes and interactive prototypes to visualize the user flow and test concepts before development."
+        title: "Cross-Platform Development",
+        description: "Using frameworks like React Native and Flutter, we create apps that work seamlessly on both iOS and Android while maintaining native-like performance."
     },
     {
-        title: "User Interface (UI) Design",
-        description: "Focusing on the look and feel, we design aesthetically pleasing and consistent interfaces. Our designs are modern, clean, and aligned with your brand identity."
+        title: "Backend Development & APIs",
+        description: "Robust backend systems with secure APIs to handle authentication, payments, data management, and real-time communication."
     },
     {
-        title: "User Experience (UX) Research",
-        description: "Understanding your users is key. We conduct thorough research, including user interviews and usability testing, to gather insights that inform design decisions."
+        title: "UI/UX for Apps",
+        description: "Clean and intuitive interfaces designed to enhance user engagement and deliver smooth in-app experiences."
     },
     {
-        title: "Web & Mobile App Design",
-        description: "Designing responsive and adaptive layouts that provide an optimal experience across all devices, from desktops to smartphones."
+        title: "App Maintenance & Support",
+        description: "Continuous monitoring, updates, and optimization to keep your app secure, bug-free, and aligned with the latest technologies."
     }
 ];
+
 const servicesList_2 = [
     {
         title: "Custom Website Development",
@@ -189,9 +190,9 @@ const HomePage = ({ onProjectSelect }) => {
 
                     <div className={`mt-16 sm:mt-24 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-stretch ${getAnimationClass('delay-300')}`}>
                         <div className="w-full md:w-1/2 p-4">
-                            <h2 className="text-3xl font-semibold text-white mb-2">UI/UX DESIGN</h2>
+                            <h2 className="text-3xl font-semibold text-white mb-2">App development</h2>
                             <p className="text-[#B5B6B6] mb-8">
-                                From initial concept to final design, we cover all aspects of the user interface and experience to ensure your product is not just good, but great.
+                                From initial idea to final deployment, we handle every stage of app development to ensure your product is not just functional, but exceptional.
                             </p>
                             <div>
                                {servicesList.map((service, index) => (

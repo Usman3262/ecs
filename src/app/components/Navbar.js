@@ -35,6 +35,12 @@ function Navbar() {
           Portfolio
         </Link>
         <Link
+          href="/reviews"
+          className="text-[#FFFFFD] text-sm hover:text-[#D9FF6A] transition"
+        >
+          Reviews
+        </Link>
+        <Link
           href="/contact"
           className="text-[#FFFFFD] text-sm hover:text-[#D9FF6A] transition"
         >
